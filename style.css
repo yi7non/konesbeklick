@@ -1,0 +1,357 @@
+/*
+ Theme Name:   cars
+ Theme URI:    
+ Description:  hello-elementor Child Theme for the Best Shimi Kline
+ Author:       Yinon Elbaz
+ Author URI:   
+ Template:     hello-elementor
+ Version:      1.0.3
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  cars
+*/
+
+.summary.entry-summary {
+    font-family: "Heebo", Sans-serif;
+}
+
+.summary.entry-summary * {
+    font-family: inherit;
+}
+
+
+
+.shimi-flex-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.top-bid {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    margin: 5px 0 48px 0;
+}
+
+.top-bid__bg {
+    background-color: #ffff00b0;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.flex-acf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    order: 3;
+}
+
+.flex__side-columns {
+    flex: 1;
+}
+
+.flex-acf__row {
+    display: flex;
+    justify-content: space-between;
+    padding: .7rem;
+    margin-left: 2px;
+}
+
+.flex-acf__row:nth-child(odd) {
+    background-color: rgba(122,122,122,0.19);
+}
+
+.flex-acf__columns {
+    flex: 1;
+}
+
+.flex-acf__columns h3 {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+}
+
+
+
+
+/************** 
+style Counter
+**************/
+.countdown_amount {
+    color: #ff0000;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.countdown_amount::after {
+    content:':';
+}
+
+.countdown_row.countdown_show4::before {
+    content: "🕒";
+    padding:0 5px;
+    margin-right: -5px;
+    position: relative;
+    z-index: 9;
+    background-color: white;
+}
+
+
+
+
+.countdown_section {
+    color: #000000;
+    font-size: 13px;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2em;
+    letter-spacing: 1.4px;
+}
+
+.countdown_show4 .countdown_section {
+    width: 100% !important;
+}
+
+.countdown_row.countdown_show4 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+
+#uwa_auction_countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+div.hasCountdown {
+    background-color: transparent;
+}
+
+#uwa_auction_countdown > strong {
+    display: none;
+}
+
+p.uwa_auction_condition {
+    display: none;
+}
+
+.yoyo-countdownTitle {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+}
+
+p.uwa_more_details {
+    display: none;
+}
+
+/************** 
+Offers style
+**************/
+
+.uwa_auction_form.cart {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    order: 2;
+}
+
+.uwa_auction_form.cart * {
+    float: none !important;
+}
+
+.uwa_auction_form.cart > .quantity.buttons_added {
+    padding-left: 17px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-basis: 70%;
+}
+
+.uwa_auction_form.cart > .quantity.buttons_added > [type=number] {
+    flex-basis: 40%;
+}
+
+.uwa_auction_form.cart label {
+    float: none!important;
+    padding: 0 0 0 17px!important;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.uwa_auction_form.cart .bid_button.button.alt {
+    background-color: green;
+    padding: 13px 22px;
+}
+
+.uwa_inc_price_hint {
+    padding-right: 10px;
+}
+
+div.uwa_auction_product_ajax_change {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/********************* 
+latest-offers styling
+**********************/
+
+.latest-offers {
+    border-bottom: 1px solid #80808026;
+    order: 4;
+    background-color: rgba(122,122,122,0.19);
+    box-shadow: inset 0 0 5px 0px #00000030, 0 0 5px #00000030;
+}
+
+.latest-offers__title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    margin: auto;
+}
+
+.latest-offers__row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #80808026;
+    padding: 8px 4px;
+}
+
+.latest-offers__row--user {
+    background-color: #ffff00b0;
+}
+
+.latest-offers__row:last-child {
+    border-bottom: none;
+}
+
+/************** 
+loop style
+**************/
+.products__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 260px 260px 260px 260px;
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.products__image {
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-bottom: 75%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.products__offer {
+    position: absolute;
+    left: 0;
+    bottom: -12%;
+    background-color: #ffe0008f;
+    font-size: 17px;
+    color: black;
+    font-weight: 700;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 5px 11px 6px 3px;
+}
+
+/* .products__circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    right: 5px;
+    bottom: -15px;
+    text-align: center;
+    padding-top: 4px;
+    box-sizing: border-box;
+} */
+
+.products__info {
+    border: 1px solid #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+    font-weight: 100;
+    line-height: 1;
+    text-align: center;
+    color: #333;
+}
+
+.products__info h3 {
+    font-size: 24px; 
+    font-weight: 500;
+    margin: 0;
+}
+
+.products__info h4 {
+    font-size: 16px; 
+    margin: 3px 0;
+}
+
+.products__inter {
+    background-color: green;
+    display: inherit;
+    color: wheat;
+    text-align: center;
+    padding: 3px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+h4.flash {
+    color: red;
+    animation: flash 2s linear infinite;
+}
+
+@keyframes flash {
+    0% {
+        font-size: 16px;
+    }
+
+    100% {
+        font-size: 17px;
+    }
+}
+
+.shadow {
+    box-shadow: 0px 0px 8px 5px #0000001c;
+    transition: all .6s;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.no-shadow {
+    box-shadow: none;
+    opacity: .8;
+}
+
+/* 
+****************
+desapper things from the template
+***************
+*/
+div.summary.entry-summary > div.uwa_auction_product_ajax_change > div.uwa-watchlist-button {display: none;}
+div.summary.entry-summary > form {display: none;}
+.woocommerce .woocommerce-breadcrumb a, .woocommerce .woocommerce-breadcrumb {
+    color: #fff;
+}
