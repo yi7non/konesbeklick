@@ -35,7 +35,7 @@ function shimi_loop($atts) {
     $topbid = substr($results, 0, strpos($results, '.'));
 
             if($a['showall'] === 'no') {
-                if($end_second < 1) {
+                if($end_second < 0) {
                     continue;
                 }
             }
@@ -50,13 +50,13 @@ function shimi_loop($atts) {
                 <h3><?php echo $carName ?></h3>
                 <h4><?php printf('שנתון: %s', get_field('year', $id)) ?></h4>
                 <h4><?php printf('מחיר מחירון: %s', '<span class="numToFormat">' . get_field('price', $id) . '</span>') ?></h4>
-                <?php $flash = $end_second > 0 ? 'flash' : ''; ?>
+                <?php $flash = $end_second >= 1 ? 'flash' : 'flash--today'; ?>
                 <h4 class='<?php echo $flash ?>'>
     <?php $html .= ob_get_clean();
     
-    if ($end_second > 0) {
+    if ($end_second >= 1) {
         $html .= sprintf('נותרו %s ימים לסיום המכרז', $end_second);
-    } else { $html .= 'המכרז נסגר'; } ?>
+    } else { $html .= 'המכרז היום'; } ?>
     <?php ob_start(); ?>
 
                 </h4>

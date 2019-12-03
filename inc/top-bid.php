@@ -93,12 +93,7 @@ function yoyo_topbid() {
         ?>
 
         <div class="latest-offers__row <?php echo $is_user ? 'latest-offers__row--user' : '' ?>">
-            <div class="latest-offers__column">
-                <span><?php echo $username; ?></span>
-            </div>
-            <div class="latest-offers__column">
-                <span>050805999</span>
-            </div>
+            
             <div class="latest-offers__column">
                 <span><?php echo $competing_offer; ?></span>
                 <span class="numToFormat"><?php echo $offer['bid']; ?></span>
