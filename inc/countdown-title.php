@@ -13,7 +13,6 @@ function yoyo_countdownTitle() {
  
     ?>
     <div id="codpen" data-id="<?php echo $id; ?>" class="wrap">  
-        <h1>Draft <strong>Countdown</strong></h1>
 
         <div class="countdown">
             <div class="bloc-time hours" data-init-value="<?php echo $end_hours; ?>">

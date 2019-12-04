@@ -9,7 +9,7 @@ function adminDash() {
         $table_name = $wpdb->prefix . 'woo_ua_auction_log';
 
         $offers = $wpdb->get_results(
-            $wpdb->prepare("SELECT * FROM {$table_name} WHERE auction_id = %d", $auction_id)
+            $wpdb->prepare("SELECT * FROM {$table_name} WHERE auction_id = %d ORDER BY date DESC", $auction_id)
             , ARRAY_A);
     
             foreach($offers as $offer) { 
@@ -25,7 +25,7 @@ function adminDash() {
                 }
     
                 $date = new DateTime($offer['date']);
-                $date = $date->format('d.m.Y');
+                $date = $date->format('d.m.Y | H:i:s');
                 
                 
             ?>
@@ -67,7 +67,11 @@ function adminDash() {
                     <input type="number" id="jumpPrice" data-userid="<?php echo get_current_user_id(); ?>" data-postid="<?php echo $auction_id; ?>" step="<?php echo $stepPrice; ?>" min="<?php echo $minPrice; ?>">
                     <button>הקפץ מחיר</button>
                 </form>
-            </div>            
+            </div>   
+
+            <div class="close-auction">
+                <a class="close-auction__btn" href="javascript:void(0)">סיום מכרז</a>
+            </div>         
             
     <?php  }
 }

@@ -637,3 +637,25 @@ Registration
     padding: 0 5px;
 }
 
+.close-auction {
+    text-align: center;
+}
+
+.close-auction__btn {
+    display: inline-block;
+    color: #FFF;
+    background: red;
+    padding: 10px 20px;
+}
+
+.close-auction__btn:hover {
+    color: #FFF;
+    background: #ff3636;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.137);
+}
+
+.user-mast-logg {
+    flex-basis: 100%;
+    text-align: center;
+}
+

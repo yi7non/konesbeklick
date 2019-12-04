@@ -16,7 +16,11 @@ function yoyo_topbid() {
     <h2 class="top-bid"><span class="top-bid__bg"><?php printf("ההצעה המובילה: %s %s", "<span class='numToFormat'>$topbid</span>", '₪'); ?></span></h2>
 
      <!-- ACF -->
-    <div class="flex-acf">
+     <!-- here i'm bind data for "סכום הצעה" input element that used in js -->
+     <?php 
+        $stepPrice = get_post_meta($auction_id, 'woo_ua_bid_increment', TRUE);
+     ?>
+    <div class="flex-acf" data-step-price="<?php echo $stepPrice; ?>">
 
         <div class="flex__side-columns flex__side-columns--right">
             <div class="flex-acf__row">
@@ -64,14 +68,14 @@ function yoyo_topbid() {
 
     </div>
 
-    <div class="latest-offers">
+    <div class="latest-offers" data-user="<?php echo is_user_logged_in(); ?>">
         <div class="latest-offers__row">
             <h2 class="latest-offers__title">הצעות אחרונות:</h2>
         </div>
 
     <?php 
         $offers = $wpdb->get_results(
-        $wpdb->prepare("SELECT * FROM {$table_name} WHERE auction_id = %d", $auction_id)
+        $wpdb->prepare("SELECT * FROM {$table_name} WHERE auction_id = %d ORDER BY date DESC", $auction_id)
         , ARRAY_A);
 
         foreach($offers as $offer) { 
@@ -87,7 +91,7 @@ function yoyo_topbid() {
             }
 
             $date = new DateTime($offer['date']);
-            $date = $date->format('d.m.Y');
+            $date = $date->format('d.m.Y | H:i:s');
             
             
         ?>

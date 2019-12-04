@@ -18,8 +18,16 @@ function admin_jump_time() {
     $left_minute = fmod($end_minute, 60);
 
     wp_send_json([$end_hours, $left_minute, $left_second, $_POST['postid']], 200);
-    }
+    } 
 
+    elseif (isset($_POST['closed'])) {
+        $id = $_POST['id'];
+        $now = date("Y-m-d H:i:s");
+        update_post_meta( $id, 'woo_ua_auction_end_date', $now);
+        update_post_meta( $id, 'woo_ua_lowest_price', 10000000);
+        wp_send_json('המכרז יסתיים תוך מספר שניות...', 200);
+    }
+    
 }
 
 ?>
