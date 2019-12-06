@@ -11,9 +11,9 @@ function shimi_enqueue_styles() {
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style', 'parent-style-min', 'parent-theme', 'parent-theme-min', 'parent-editor', 'parent-editor-min'), wp_get_theme()->get('Version'));
 
     wp_enqueue_script('gsap', get_stylesheet_directory_uri() . '/js/gsap.js', array(), wp_get_theme()->get('Version'), true);
-    wp_enqueue_script('app', get_stylesheet_directory_uri() . '/js/app.js', array('jquery', 'gsap'), time(), true);
+    wp_enqueue_script('bundled', get_stylesheet_directory_uri() . '/js/bundled.js', array('gsap'), time(), true);
 
-    wp_localize_script( 'app', 'shimi_obj', array(
+    wp_localize_script( 'bundled', 'shimi_obj', array(
         'ajax_url' => admin_url('/admin-ajax.php'),
         'nonce' => wp_create_nonce('wp_rest'),
         'root_url' => get_site_url()
@@ -33,25 +33,31 @@ require_once(get_theme_file_path( '/inc/top-bid.php' ));
 require_once(get_theme_file_path( '/inc/admin-dashbord.php' ));
 require_once(get_theme_file_path( '/inc/countdown-title.php' ));
 require_once(get_theme_file_path( '/inc/shortcode.php' ));
+require_once(get_theme_file_path( '/inc/flex-acf.php' ));
+require_once(get_theme_file_path( '/inc/latest-offers.php' ));
 
 add_action('ultimate_woocommerce_auction_before_bid_form', 'yoyo_topbid', 10); 
 add_action('woocommerce_after_single_product', 'adminDash', 10); 
 add_action('woocommerce_single_product_summary', 'yoyo_countdownTitle', 10);
+add_action('woocommerce_before_single_product_summary', 'flexACF', 30);
+add_action('woocommerce_after_single_product_summary', 'latestOffers', 10);
+
+
 add_shortcode('carsloop', 'shimi_loop');
 
 
 // AJAX SECTION
-require_once(get_theme_file_path( '/inc/admin-jump-time.php' ));
+require_once(get_theme_file_path( '/inc/ajax/admin-jump-time.php' ));
 add_action('wp_ajax_admin_jump_time', 'admin_jump_time');
 
-require_once(get_theme_file_path( '/inc/admin-jump-price.php' ));
+require_once(get_theme_file_path( '/inc/ajax/admin-jump-price.php' ));
 add_action('wp_ajax_admin_jump_price', 'admin_jump_price');
 
-require_once(get_theme_file_path( '/inc/reg.php' ));
+require_once(get_theme_file_path( '/inc/ajax/reg.php' ));
 add_action('wp_ajax_nopriv_shimi_reg', 'shimi_reg');
 add_action('wp_ajax_shimi_reg', 'shimi_reg');
 
-require_once(get_theme_file_path( '/inc/rest-api.php' ));
+require_once(get_theme_file_path( '/inc/ajax/rest-api.php' ));
 add_action('rest_api_init', 'shimiTimer');
 
 // Remove Actions

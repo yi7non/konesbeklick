@@ -63,8 +63,9 @@ function adminDash() {
                     <?php 
                     $stepPrice = get_post_meta($auction_id, 'woo_ua_bid_increment', TRUE);
                     $minPrice = get_post_meta($auction_id, 'woo_ua_lowest_price', TRUE);
+                    $currentBid = get_post_meta($auction_id, 'topbid', TRUE);
                     ?>
-                    <input type="number" id="jumpPrice" data-userid="<?php echo get_current_user_id(); ?>" data-postid="<?php echo $auction_id; ?>" step="<?php echo $stepPrice; ?>" min="<?php echo $minPrice; ?>">
+                    <input value="<?php echo ($currentBid > $minPrice) ? ($currentBid + $stepPrice) : $minPrice ?>" type="number" id="jumpPrice" data-userid="<?php echo get_current_user_id(); ?>" data-postid="<?php echo $auction_id; ?>" step="<?php echo $stepPrice; ?>" min="<?php echo $minPrice; ?>">
                     <button>הקפץ מחיר</button>
                 </form>
             </div>   

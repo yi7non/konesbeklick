@@ -12,6 +12,10 @@
  Text Domain:  cars
 */
 
+body:not([class*=elementor-page-]) .site-main {
+    max-width: 100% !important;
+}
+
 .summary.entry-summary {
     font-family: "Heebo", Sans-serif;
 }
@@ -22,10 +26,11 @@
 
 
 
-.shimi-flex-box {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
+.shimi-grid-3 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 10px;
+    justify-content: center;
 }
 
 .top-bid {
@@ -252,6 +257,16 @@ loop style
     grid-template-columns: 260px 260px 260px 260px;
     grid-gap: 10px;
     justify-content: center;
+}
+
+@media (max-width: 520px) {
+    .products__grid {
+        display: block;
+    }
+
+    li.shadow {
+        margin: 30px 0;
+    }
 }
 
 .products__image {
