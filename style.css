@@ -24,13 +24,16 @@ body:not([class*=elementor-page-]) .site-main {
     font-family: inherit;
 }
 
-
-
 .shimi-grid-3 {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    grid-gap: 10px;
+    grid-gap: 20px;
     justify-content: center;
+    padding-top: 60px;
+}
+
+.shimi-grid-3 > div {
+    padding: 30px;
 }
 
 .top-bid {
@@ -213,26 +216,25 @@ div.uwa_auction_product_ajax_change {
 latest-offers styling
 **********************/
 
-.latest-offers {
-    border-bottom: 1px solid #80808026;
-    order: 4;
-    background-color: rgba(122,122,122,0.19);
-    box-shadow: inset 0 0 5px 0px #00000030, 0 0 5px #00000030;
-}
-
 .latest-offers__title {
     text-align: center;
     font-size: 22px;
     font-weight: 900;
     margin: auto;
+    font-family: "Heebo", Sans-serif;
 }
 
 .latest-offers__row {
     display: flex;
     text-align: center;
-    border-bottom: 1px solid #80808026;
     padding: 8px 4px;
+    background-color: #d9d9d9;
+    margin: 10px auto;
+    border-radius: 10px;
+    width: 85%;
 }
+
+.latest-offers__row:first-child {border-radius: 3px;}
 
 .latest-offers__row--user {
     background-color: #ffff00b0;
@@ -383,14 +385,16 @@ div.summary.entry-summary > form {display: none;}
 
 
 
+
+.open-auction-time {
+    background-color: #d9d9d9;
+}
 /*************
 codePEN CSS
 **************/
-
   
   #codpen.wrap {
-    margin: auto;
-    height: 310px;
+    height: 150px;
   }
   
   #codpen a {
@@ -427,8 +431,6 @@ codePEN CSS
     flex-direction: row-reverse;
     text-align: center;
     }
-
-
  
   #codpen .countdown .count-title {
     display: block;
@@ -449,6 +451,8 @@ codePEN CSS
     -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
   }
+
+
   #codpen .countdown .figure:last-child {
     margin-right: 0;
   }
