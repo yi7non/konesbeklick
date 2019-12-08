@@ -26,14 +26,16 @@ body:not([class*=elementor-page-]) .site-main {
 
 .shimi-grid-3 {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-gap: 20px;
+    grid-template-columns: 30% 38% 30%;
+    grid-gap: 10px;
     justify-content: center;
     padding-top: 60px;
 }
 
-.shimi-grid-3 > div {
-    padding: 30px;
+@media (max-width: 520px) {
+    .shimi-grid-3 {
+        display: block;
+    }
 }
 
 .top-bid {
@@ -41,13 +43,13 @@ body:not([class*=elementor-page-]) .site-main {
     font-weight: 500;
     line-height: 1;
     text-align: center;
-    margin: 5px 0 48px 0;
+    margin: 45px 0 48px 0;
 }
 
 .top-bid__bg {
-    background-color: #ffff00b0;
-    padding: 8px;
-    border-radius: 8px;
+    background-color: #66666680;
+    padding: 4px 35px;
+    font-weight: 900;
 }
 
 .flex-acf {
@@ -71,7 +73,7 @@ body:not([class*=elementor-page-]) .site-main {
 }
 
 .flex-acf__row:nth-child(odd) {
-    background-color: rgba(122,122,122,0.19);
+    background-color: #d9d9d9;
 }
 
 .flex-acf__columns {
@@ -172,6 +174,9 @@ Offers style
     align-items: baseline;
     flex-wrap: wrap;
     order: 2;
+    justify-content: center;
+    overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .uwa_auction_form.cart * {
@@ -183,23 +188,55 @@ Offers style
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
-    flex-basis: 70%;
+    flex-basis: 27%;
+    position: relative;
+}
+
+.uwa_auction_form.cart > .quantity.buttons_added > label {
+    position: absolute;
+    top: 4px;
+    background-color: #d9d9d9;
+    padding: 12px 14px 12px !important;
+    color: #b2b2b2;
+    box-shadow: 3px 3px 10px 0px #aaaaaa;
+    transition: all .6s ease-out;
+    z-index: 3;
+}
+
+.uwa_auction_form.cart > .quantity.buttons_added:hover > label {
+    top: -70px;
+    opacity: .3;
+    box-shadow: none;
+    transform: scale(0);
 }
 
 .uwa_auction_form.cart > .quantity.buttons_added > [type=number] {
-    flex-basis: 40%;
+    flex-basis: 100%;
+    border-radius: 0px;
+    border-color: #66666680;
+    height: 49px;
+    transform: translateY(4px);
 }
 
 .uwa_auction_form.cart label {
     float: none!important;
-    padding: 0 0 0 17px!important;
+    /* padding: 0 0 0 17px!important; */
     font-size: 25px;
     font-weight: 700;
 }
 
 .uwa_auction_form.cart .bid_button.button.alt {
-    background-color: green;
+    background-color: rgba(0, 128, 0, 0.815);
     padding: 13px 22px;
+    padding: 12px 14px;
+    font-size: 25px;
+    top: 6px;
+    border-radius: 0px;
+}
+
+.uwa_auction_form.cart .bid_button.button.alt:hover {
+    box-shadow: 3px 3px 10px 0px #aaaaaa;
+    background-color: green;
 }
 
 .uwa_inc_price_hint {
@@ -209,6 +246,9 @@ Offers style
 div.uwa_auction_product_ajax_change {
     display: flex;
     flex-direction: column;
+    background-color: #d9d9d9;
+    margin-top: 10px;
+    overflow: hidden;
 }
 
 
@@ -218,7 +258,7 @@ latest-offers styling
 
 .latest-offers__title {
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 900;
     margin: auto;
     font-family: "Heebo", Sans-serif;
@@ -231,10 +271,10 @@ latest-offers styling
     background-color: #d9d9d9;
     margin: 10px auto;
     border-radius: 10px;
-    width: 85%;
+    font-size: 18px;
 }
 
-.latest-offers__row:first-child {border-radius: 3px;}
+.latest-offers__row:first-child {border-radius: 3px; margin-top: 0;}
 
 .latest-offers__row--user {
     background-color: #ffff00b0;
@@ -388,13 +428,18 @@ div.summary.entry-summary > form {display: none;}
 
 .open-auction-time {
     background-color: #d9d9d9;
+    padding: 30px;
+    text-align: center;
+    color: #666666;
+    font-weight: 600;
 }
 /*************
 codePEN CSS
 **************/
   
   #codpen.wrap {
-    height: 150px;
+    height: 60px;
+    margin: 50px 0;
   }
   
   #codpen a {
@@ -424,7 +469,7 @@ codePEN CSS
   }
   
   #codpen .countdown {
-    width: 100%;
+    width: 88%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
@@ -434,10 +479,7 @@ codePEN CSS
  
   #codpen .countdown .count-title {
     display: block;
-    margin-bottom: 15px;
-    font: normal 0.94em "Lato";
-    color: #1a1a1a;
-    text-transform: uppercase;
+    margin-top: 75px;
   }
   #codpen .countdown .figure {
     position: relative;
@@ -463,7 +505,7 @@ codePEN CSS
     margin: auto;
     font: normal 3.94em/75px "Lato";
     font-weight: 900;
-    color: #de4848;
+    color: #666;
     font-family: "Heebo", Sans-serif;
   }
   #codpen .countdown .figure .top:after, .countdown .figure .bottom-back:after {

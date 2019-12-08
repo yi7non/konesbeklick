@@ -31,5 +31,6 @@ register();
 import * as misc from './modules/Misc';
 misc.remove();
 misc.inputOffer();
+misc.changeText();
 
 

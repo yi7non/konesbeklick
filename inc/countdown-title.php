@@ -15,9 +15,11 @@ function yoyo_countdownTitle() {
             <h3 class="open-auction-time__title">המכרז יפתח בתאריך</h3>
             <div class="open-auction-time__content">
                 <?php
-                $start_date = explode(" ", get_post_meta($id, 'woo_ua_auction_start_date', true)); 
+                $start_date = explode(" ", get_post_meta($id, 'woo_ua_auction_start_date', true));
+                $text_date = array_reverse(explode("-", $start_date[0]));
+
                 ?>
-                <time><?php echo $start_date[0]; ?></time>
+                <time><?php echo implode('.', $text_date); ?></time>
                 <span>בשעה</span>
                 <time><?php echo $start_date[1]; ?></time>
             </div>
@@ -27,7 +29,6 @@ function yoyo_countdownTitle() {
 
             <div class="countdown">
                 <div class="bloc-time hours" data-init-value="<?php echo $end_hours; ?>">
-                <span class="count-title">שעות</span>
 
                 <div class="figure hours hours-1">
                     <span class="top">0</span>
@@ -50,10 +51,10 @@ function yoyo_countdownTitle() {
                     <span>0</span>
                     </span>
                 </div>
+                <span class="count-title">שעות</span>
                 </div>
 
                 <div class="bloc-time min" data-init-value="<?php echo $left_minute; ?>">
-                <span class="count-title">דקות</span>
 
                 <div class="figure min min-1">
                     <span class="top">0</span>
@@ -76,10 +77,11 @@ function yoyo_countdownTitle() {
                     <span>0</span>
                     </span>
                 </div>
+                <span class="count-title">דקות</span>
                 </div>
 
                 <div class="bloc-time sec" data-init-value="<?php echo $left_second; ?>">
-                <span class="count-title">שניות</span>
+                
 
                     <div class="figure sec sec-1">
                     <span class="top">0</span>
@@ -102,6 +104,7 @@ function yoyo_countdownTitle() {
                     <span>0</span>
                     </span>
                 </div>
+                <span class="count-title">שניות</span>
                 </div>
             </div>
         </div>

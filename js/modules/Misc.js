@@ -15,3 +15,9 @@ export const inputOffer = () => {
   inputOffer.val(value).attr('step', elementStordata.data('step-price'));
 
 }
+
+export const changeText = () => {
+  // label uwa_your_bid
+  $('[for="uwa_your_bid"]').text('הזן הצעה   ₪')
+
+}
