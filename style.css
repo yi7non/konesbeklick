@@ -38,18 +38,49 @@ body:not([class*=elementor-page-]) .site-main {
     }
 }
 
+.shimi-grid-3__grid-one {
+    height: 315px;
+    overflow-y: scroll;
+}
+
+.shimi-grid-3__grid-one::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+    background-color: #d9d9d9;
+}
+
+.shimi-grid-3__grid-one::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    height: 10px;
+    background-color: #b2b1b1;
+}
+
 .top-bid {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 500;
     line-height: 1;
     text-align: center;
     margin: 45px 0 48px 0;
 }
 
+@media (min-width: 1475px) {
+    .top-bid {
+        font-size: 30px; 
+    }
+}
+
+
+
 .top-bid__bg {
     background-color: #66666680;
-    padding: 4px 35px;
+    padding: 3px 10px;
     font-weight: 900;
+}
+
+@media (min-width: 1475px) {
+    .top-bid__bg {
+        padding: 4px 35px;
+    }
 }
 
 .flex-acf {
@@ -81,10 +112,16 @@ body:not([class*=elementor-page-]) .site-main {
 }
 
 .flex-acf__columns h3 {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1;
     margin: 0;
+}
+
+@media (min-width: 1475px) {
+    .flex-acf__columns h3 {
+        font-size: 19px;
+    }  
 }
 
 
@@ -188,26 +225,48 @@ Offers style
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
-    flex-basis: 27%;
+    flex-basis: 40%;
     position: relative;
+}
+
+@media (min-width: 1475px) {
+    .uwa_auction_form.cart > .quantity.buttons_added {
+        flex-basis: 27%;
+    }
 }
 
 .uwa_auction_form.cart > .quantity.buttons_added > label {
     position: absolute;
     top: 4px;
     background-color: #d9d9d9;
-    padding: 12px 14px 12px !important;
+    padding: 12px 14px !important;
     color: #b2b2b2;
     box-shadow: 3px 3px 10px 0px #aaaaaa;
     transition: all .6s ease-out;
     z-index: 3;
 }
 
+@media (min-width: 1138px) {
+    .uwa_auction_form.cart > .quantity.buttons_added > label {
+        padding: 12px 26px !important;
+    }
+}
+
+@media (min-width: 1138px) and (max-width: 1473px) {
+    .uwa_auction_form.cart > .quantity.buttons_added > label {
+        padding: 12px 38px !important;
+    }
+}
+
+@media (min-width: 1474px) {
+    .uwa_auction_form.cart > .quantity.buttons_added > label {
+        padding: 12px 16px !important;
+    }
+}
 .uwa_auction_form.cart > .quantity.buttons_added:hover > label {
-    top: -70px;
-    opacity: .3;
-    box-shadow: none;
-    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.7); 
 }
 
 .uwa_auction_form.cart > .quantity.buttons_added > [type=number] {
@@ -264,14 +323,27 @@ latest-offers styling
     font-family: "Heebo", Sans-serif;
 }
 
+@media (min-width: 1475px) {
+    .latest-offers__title {
+        font-size: 24px;
+    }
+}
+
 .latest-offers__row {
     display: flex;
     text-align: center;
-    padding: 8px 4px;
+    padding: 5px 0px;
     background-color: #d9d9d9;
     margin: 10px auto;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 15px;
+}
+
+@media (min-width: 1475px) {
+    .latest-offers__row {
+        font-size: 18px;
+        padding: 8px 4px;
+    }
 }
 
 .latest-offers__row:first-child {border-radius: 3px; margin-top: 0;}
@@ -469,13 +541,19 @@ codePEN CSS
   }
   
   #codpen .countdown {
-    width: 88%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row-reverse;
     text-align: center;
+}
+
+@media (min-width: 1475px) {
+    #codpen .countdown {
+        width: 88%;
     }
+  }  
  
   #codpen .countdown .count-title {
     display: block;
@@ -484,14 +562,21 @@ codePEN CSS
   #codpen .countdown .figure {
     position: relative;
     float: left;
-    height: 65px;
-    width: 55px;
+    height: 48px;
+    width: 38px;
     margin-right: 10px;
     background-color: #fff;
     border-radius: 8px;
     -moz-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
     -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  @media (min-width: 1475px) {
+    #codpen .countdown .figure {
+        height: 65px;
+        width: 55px;
+    }
   }
 
 
@@ -507,7 +592,16 @@ codePEN CSS
     font-weight: 900;
     color: #666;
     font-family: "Heebo", Sans-serif;
+    font-size: 48px;
+    line-height: 52px;
   }
+
+  @media (min-width: 1475px) {
+    #codpen .countdown .figure > span {
+        font: 900 3.94em/75px "Heebo";
+    }
+  }
+
   #codpen .countdown .figure .top:after, .countdown .figure .bottom-back:after {
     content: "";
     position: absolute;
@@ -720,3 +814,18 @@ Registration
     text-align: center;
 }
 
+@keyframes showLastBid {
+    0% {
+        transform: scale(1);
+        background-color: #d9d9d9;
+    }
+
+    100% {
+        transform: scale(1.2);
+        background-color: #5fb3fc;
+    }
+}
+
+.show-last-bid {
+    animation: showLastBid 1.3s ease-in .1s backwards;
+}

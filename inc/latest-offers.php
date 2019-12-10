@@ -6,6 +6,7 @@ function latestOffers() { ?>
         <div class="latest-offers__row">
             <h2 class="latest-offers__title">הצעות אחרונות:</h2>
         </div>
+        <audio id="audio" src="<?php echo get_theme_file_uri('/assets/eventually.mp3'); ?>"></audio>
 
     <?php 
         global $post;
@@ -43,7 +44,7 @@ function latestOffers() { ?>
                 <span>₪</span>
             </div>
             <div class="latest-offers__column">
-                <span><?php echo $date; ?></span>
+                <span data-userid="<?php echo get_current_user_id(); ?>" class="date-to-compare"><?php echo $date; ?></span>
             </div>
         </div>
 

@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import { formatNumber } from './FormatNumber';
+import PrependBid from './PrependBid';
+
 
 export const update = () => {
 
@@ -40,7 +42,19 @@ export const update = () => {
               }, ((seconds + 2)*1000));
             }
 
+             //  prepend last bid to list off "הצעות אחרונות"
+            const prependBid = new PrependBid(
+              $('.date-to-compare').eq(0).text(),
+              $('.latest-offers__row').eq(0),
+              $('.date-to-compare').eq(0).data('userid'),
+              res
+            );
+            prependBid.prependNewDate();  
+
        });
+
+     
+
 
     }, (1000 * 5));
 

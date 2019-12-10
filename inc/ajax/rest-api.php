@@ -21,9 +21,13 @@ function shimiTimer() {
            "SELECT MAX(bid) FROM {$table_name} WHERE auction_id = %d", $data['postid']
         ));
 
+        $row = $wpdb->get_row($wpdb->prepare(
+         "SELECT * FROM {$table_name} WHERE auction_id = %d ORDER BY date DESC" , $data['postid']
+      ));
+
         $topbid = substr($results, 0, strpos($results, '.'));
 
-        return array($end_hours, $left_minute, $left_second, $data['postid'], $topbid);
+        return array($end_hours, $left_minute, $left_second, $data['postid'], $topbid, $row);
      }
 
      
