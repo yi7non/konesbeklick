@@ -706,6 +706,28 @@ Registration
 .reg-container {
     max-width: 893px;
     margin: auto;
+    background-color: #FFF;
+}
+
+.reg-container--modal {
+    width: 80%;
+    max-width: none;
+    padding: 50px;
+}
+
+.register-modal__exit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 50px;
+    font-size: 30px;
+    color: azure;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.register-modal__exit:hover {
+    opacity: 1;
 }
 
 .reg {
@@ -828,4 +850,26 @@ Registration
 
 .show-last-bid {
     animation: showLastBid 1.3s ease-in .1s backwards;
+}
+
+
+.register-modal {
+    position: fixed;
+    background-color: #2a2929d9;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.register-modal.active {
+    transform: scale(1);
+    opacity: 1;
 }

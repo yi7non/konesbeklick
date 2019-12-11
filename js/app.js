@@ -21,7 +21,7 @@ update();
 import * as jump from './modules/Jump';
 jump.time();
 jump.price();
-jump.closedBid();
+jump.closedBid();  
 
 // Registration function
 import { register } from './modules/Register';
@@ -32,5 +32,6 @@ import * as misc from './modules/Misc';
 misc.remove();
 misc.inputOffer();
 misc.changeText();
+misc.conf();
 
 

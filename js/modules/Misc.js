@@ -20,4 +20,18 @@ export const changeText = () => {
   // label uwa_your_bid
   $('[for="uwa_your_bid"]').text('הזן הצעה   ₪')
 
+}   
+  
+export const conf = () => {
+  $('[type=submit].bid_button').on('click', function(e) {
+    var bid = $('#uwa_bid_value').val();
+    var approval = window.confirm("אתה עומד להציע" + bid + ' ש"ח');
+
+    if(approval) {
+      $('.uwa_auction_form.cart')[0].submit();
+    }
+    else {
+      e.preventDefault();
+    }
+  });
 }

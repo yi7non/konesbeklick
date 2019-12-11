@@ -1,8 +1,10 @@
 import $ from 'jquery';
+import TemplateRegister from './TemplateRegister';
+const template = new TemplateRegister();
 
 export const register = () => {
 
-    $('.reg__step').on('click', (e) => {
+    $(document).on('click', '.reg__step', (e) => {
     
         const target = $(e.target.closest('div'));
     
@@ -19,7 +21,7 @@ export const register = () => {
     
       });
     
-      $('#form--one').submit(function(e) {
+      $(document).on('submit', '#form--one', function(e) {
     
         e.preventDefault();
     
@@ -47,12 +49,22 @@ export const register = () => {
     
       // if user not register is not can offers bid
     
-      if(!$('.latest-offers').data('user')) {
+      if(!$('.latest-offers').data('user')) { 
         
-        $('.uwa_auction_form.cart').html(
-          `<p class="user-mast-logg">בכדי להציע עליך להיות משתמש רשום באתר </p>
-           <p class="user-mast-logg"> לחץ כאן ל<a href="${shimi_obj.root_url}/registration">הרשמה</a> </p>`
-        );
+        $('body').append(template.createHTML());
+
+        const btn = $('.uwa_auction_form.cart').find('.bid_button');
+        btn.attr('disabled', 'disabled');
+        $(document).on('mouseenter', '.uwa_auction_form.cart', function() {
+            $('.register-modal').addClass('active');
+            $('body').css('overflow-y', 'hidden');
+          });
+
+        $('.register-modal__exit').on('click', function() {
+          $('.register-modal').removeClass('active');
+          $('body').css('overflow-y', 'scroll');
+        });
+        
       }
 
 }
