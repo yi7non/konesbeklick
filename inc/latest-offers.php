@@ -18,13 +18,19 @@ function latestOffers() { ?>
         $wpdb->prepare("SELECT * FROM {$table_name} WHERE auction_id = %d ORDER BY date DESC", $auction_id)
         , ARRAY_A);
 
+        $userid = get_current_user_id();
+        $isUserAllowed = FALSE;
+        if(current_user_can('edit_theme_options')) {
+            $isUserAllowed = TRUE;
+        }
+
         foreach($offers as $offer) { 
             
             $is_user = false;
             $competing_offer = "הצעה מתחרה: ";
             $user_info = get_userdata($offer['userid']);
             $username =  "{$user_info->first_name} " . $user_info->last_name;
-            if(get_current_user_id() == $offer['userid']) {
+            if($userid == $offer['userid']) {
                 $username = "אני";
                 $competing_offer = "ההצעה שלי:";
                 $is_user = true;
@@ -36,7 +42,7 @@ function latestOffers() { ?>
             
         ?>
 
-        <div class="latest-offers__row <?php echo $is_user ? 'latest-offers__row--user' : '' ?>">
+        <div data-bidder-id="<?php echo $offer['userid'] ?>" class="latest-offers__row <?php echo $is_user ? 'latest-offers__row--user' : '' ?>">
             
             <div class="latest-offers__column">
                 <span><?php echo $competing_offer; ?></span>
@@ -44,8 +50,17 @@ function latestOffers() { ?>
                 <span>₪</span>
             </div>
             <div class="latest-offers__column">
-                <span data-userid="<?php echo get_current_user_id(); ?>" class="date-to-compare"><?php echo $date; ?></span>
+                <span data-userid="<?php echo $userid; ?>" class="date-to-compare"><?php echo $date; ?></span>
             </div>
+            <?php
+                 if($isUserAllowed) { ?>
+                    <div class="latest-offers__phone-bidder">
+                        <p><?php echo $username; ?></p>
+                        <p><span>טלפון: </span>
+                        <?php echo get_user_meta($offer['userid'], 'billing_phone', TRUE); ?>
+                        </p>
+                    </div>
+            <?php } ?>
         </div>
 
         <?php } ?>

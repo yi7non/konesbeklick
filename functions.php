@@ -37,7 +37,7 @@ require_once(get_theme_file_path( '/inc/flex-acf.php' ));
 require_once(get_theme_file_path( '/inc/latest-offers.php' ));
 
 add_action('ultimate_woocommerce_auction_before_bid_form', 'yoyo_topbid', 10); 
-add_action('woocommerce_after_single_product', 'adminDash', 10); 
+add_action('woocommerce_auction_add_to_cart', 'adminDash', 10); 
 add_action('woocommerce_single_product_summary', 'yoyo_countdownTitle', 10);
 add_action('woocommerce_before_single_product_summary', 'flexACF', 30);
 add_action('woocommerce_after_single_product_summary', 'latestOffers', 10);

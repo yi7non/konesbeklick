@@ -5,7 +5,13 @@ function shimiTimer() {
             'methods' => WP_REST_Server::READABLE,
             'callback' => 'shimiApTime'
         ));
-     }
+
+      register_rest_route('shimi/v1', 'grid-home-update', array(
+      'methods' => WP_REST_Server::READABLE,
+      'callback' => 'gridHomeUPDATE'
+      ));
+
+   }
 
      function shimiApTime($data) {
         $end_time = get_post_meta($data['postid'] ,'woo_ua_auction_end_date', true);
@@ -28,6 +34,20 @@ function shimiTimer() {
         $topbid = substr($results, 0, strpos($results, '.'));
 
         return array($end_hours, $left_minute, $left_second, $data['postid'], $topbid, $row);
+     }
+
+     function gridHomeUPDATE($param) {
+
+      $topBID = array();
+
+      $IDs = explode(",", $param['id']);
+
+      foreach($IDs as $id) {
+         $topBID[] = get_post_meta($id, 'topbid', true);
+      }
+
+      return $topBID;
+      
      }
 
      

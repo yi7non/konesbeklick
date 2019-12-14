@@ -8,6 +8,15 @@ topbids.forEach(topbid => topbid.textContent = formatNumber(topbid.textContent))
 import { gridShadow } from './modules/Grid';
 gridShadow();
 
+// update the bid on home page grid
+import UpdateHomeGrid from './modules/UpdateHomeGrid';
+const updateHomeGrid = new UpdateHomeGrid();
+if(document.querySelector('li.shadow')) {
+  setInterval(() => {
+    updateHomeGrid.queryRestApi();
+  }, 5000);
+}
+
 // The countDown clock
 import { Countdown } from './modules/Codpen';
   Countdown.init(); 
@@ -32,6 +41,8 @@ import * as misc from './modules/Misc';
 misc.remove();
 misc.inputOffer();
 misc.changeText();
-misc.conf();
+// misc.conf();
 
-
+// form registration valdations
+import Validation from './modules/Validation';
+const validForm = new Validation();

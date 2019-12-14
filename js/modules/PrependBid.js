@@ -11,6 +11,9 @@ export default class PrependBid {
     }
 
     compareDate() {
+
+        if(!$('#uwa_bid_value').length) return;
+
         this.lastdate = this.lastdate.split("|")[0].trim().split('.').reverse().join('-') + this.lastdate.split("|")[1];
         console.log(this.lastdate)
         this.lastdate = Date.parse(this.lastdate);

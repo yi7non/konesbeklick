@@ -4,6 +4,7 @@ export default class TemplateRegister {
     }
 
     createHTML() { 
+        if(window.location.href.includes('/registration')) return;
         return `
             <div class="register-modal">
                 <div class="register-modal__exit">

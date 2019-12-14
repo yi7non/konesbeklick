@@ -5,6 +5,8 @@ import PrependBid from './PrependBid';
 
 export const update = () => {
 
+  if(!$('#uwa_bid_value').length) return;
+
     var upTimePrice = setInterval(function() {
 
         var id = $('#codpen').data('id');

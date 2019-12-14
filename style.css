@@ -39,21 +39,9 @@ body:not([class*=elementor-page-]) .site-main {
 }
 
 .shimi-grid-3__grid-one {
-    height: 315px;
-    overflow-y: scroll;
+    position: relative;
 }
 
-.shimi-grid-3__grid-one::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 3px;
-    background-color: #d9d9d9;
-}
-
-.shimi-grid-3__grid-one::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    height: 10px;
-    background-color: #b2b1b1;
-}
 
 .top-bid {
     font-size: 26px;
@@ -314,6 +302,23 @@ div.uwa_auction_product_ajax_change {
 /********************* 
 latest-offers styling
 **********************/
+.latest-offers {
+    padding-top: 45px;
+    height: 315px;
+    overflow-y: scroll;
+}
+
+.latest-offers::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+    background-color: #d9d9d9;
+}
+
+.latest-offers::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    height: 10px;
+    background-color: #b2b1b1;
+}
 
 .latest-offers__title {
     text-align: center;
@@ -321,6 +326,17 @@ latest-offers styling
     font-weight: 900;
     margin: auto;
     font-family: "Heebo", Sans-serif;
+}
+
+.latest-offers__phone-bidder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.latest-offers__phone-bidder p {
+    margin: 0;
+    flex: 1;
 }
 
 @media (min-width: 1475px) {
@@ -331,6 +347,7 @@ latest-offers styling
 
 .latest-offers__row {
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     padding: 5px 0px;
     background-color: #d9d9d9;
@@ -346,7 +363,14 @@ latest-offers styling
     }
 }
 
-.latest-offers__row:first-child {border-radius: 3px; margin-top: 0;}
+.latest-offers__row:first-child {
+    border-radius: 3px;
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
 
 .latest-offers__row--user {
     background-color: #ffff00b0;
@@ -397,12 +421,12 @@ loop style
     position: absolute;
     left: 0;
     bottom: -12%;
-    background-color: #ffe0008f;
+    background-color: #dbdbdb;
     font-size: 17px;
     color: black;
     font-weight: 700;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 5px 11px 6px 3px;
 }
 
@@ -804,6 +828,14 @@ Registration
     color: #FFF;
 }
 
+.alert-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
 #locked {
     margin: 10px 0;
     font-size: 16px;
@@ -816,20 +848,55 @@ Registration
 
 .close-auction {
     text-align: center;
+    align-self: flex-end;
+    margin-right: 15px;
 }
 
 .close-auction__btn {
     display: inline-block;
     color: #FFF;
-    background: red;
+    background: #ff3636;
     padding: 10px 20px;
 }
 
 .close-auction__btn:hover {
     color: #FFF;
-    background: #ff3636;
+    background: red;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.137);
 }
+
+.adminers-forms {
+    background-color: #d9d9d9;
+    padding: 20px;
+    display: flex;
+}
+
+.adminers-forms > .jump {
+    flex-basis: 38%;
+}
+
+.jump__field {
+    display: flex;
+}
+
+.jump__field input {
+    width: 50% !important;
+    border-radius: 0 !important;
+}
+
+.jump__field button {
+    border-radius: 0;
+    padding: 5px 8px;
+    background-color: #289028;
+    color: #FFF;
+    border: none;
+    margin-right: 1px;
+}
+
+.jump__field button:hover {
+    background-color: green;
+}
+
 
 .user-mast-logg {
     flex-basis: 100%;
