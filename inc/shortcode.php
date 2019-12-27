@@ -19,8 +19,10 @@ function shimi_loop($atts) {
             $id = $loop->post->ID;  
             
             $end_time = get_post_meta($id ,'woo_ua_auction_end_date', true);
-            $end_second = round((strtotime($end_time) - strtotime("now")) / 60 / 60 / 24);
-            
+            $raw_time = strtotime($end_time) - strtotime("now");
+            $end_days = $raw_time / 60 / 60 / 24;
+            $end_hours = ($end_days - round($end_days)) * 24;
+            $end_minutes = ($end_hours - round($end_hours)) * 60;
 
             $href = $loop->posts[$loop->current_post]->guid; 
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'shop_catalog' );
@@ -35,7 +37,7 @@ function shimi_loop($atts) {
     $topbid = substr($results, 0, strpos($results, '.'));
 
             if($a['showall'] === 'no') {
-                if($end_second < 0) {
+                if($end_days < 0 && $end_hours < 0 && $end_minutes < 0) {
                     continue;
                 }
             }
@@ -44,22 +46,13 @@ function shimi_loop($atts) {
     <li class='shadow' data-id='<?php echo $id ?>'>
         <a href='<?php echo $href ?>' style='display:block;'>
             <div class='products__image' style='background-image: url(<?php echo $image[0] ?>);' data-id='<?php echo $id ?>'>
-                <h4 class='products__offer'><?php printf('ההצעה המובילה: %s %s', '<span class="numToFormat">' . $topbid . '</span>', '₪') ?></h4>
+                <h4 class='products__offer'><?php printf('הצעה מובילה: %s %s', '<span class="numToFormat">' . $topbid . '</span>', '<span>₪</span>') ?></h4>
             </div>
             <div class='products__info'>
+                <h4><?php printf('%s ימים : %s שעות : %s דקות', round($end_days), round($end_hours), round($end_minutes)); ?></h4>
                 <h3><?php echo $carName ?></h3>
                 <h4><?php printf('שנתון: %s', get_field('year', $id)) ?></h4>
                 <h4><?php printf('מחיר מחירון: %s', '<span class="numToFormat">' . get_field('price', $id) . '</span>') ?></h4>
-                <?php $flash = $end_second >= 1 ? 'flash' : 'flash--today'; ?>
-                <h4 class='<?php echo $flash ?>'>
-    <?php $html .= ob_get_clean();
-    
-    if ($end_second >= 1) {
-        $html .= sprintf('נותרו %s ימים לסיום המכרז', $end_second);
-    } else { $html .= 'המכרז היום'; } ?>
-    <?php ob_start(); ?>
-
-                </h4>
             </div>
         </a>
         <a class='products__inter' href='<?php echo get_permalink($id) ?>'>כניסה למכרז &rsaquo;&rsaquo;</a>
