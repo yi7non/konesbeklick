@@ -452,7 +452,6 @@ loop style
 
 .products__info {
     border: 1px solid #f2f2f2;
-    padding: 20px;
     box-sizing: border-box;
     font-weight: 100;
     line-height: 1;
@@ -469,6 +468,22 @@ loop style
 .products__info h4 {
     font-size: 16px; 
     margin: 3px 0;
+}
+
+.products__info h4:first-child {
+    font-size: 24px;
+    font-weight: 400;
+    border-bottom: 5px solid #3fd77e;
+    padding: 0px 0 7px;
+}
+
+span.the-time {
+    font-weight: 100;
+}
+
+.products__info h4:first-child span:not(.the-time) {
+    color: #3fd77e;
+    font-weight: 600;
 }
 
 .products__inter {
@@ -510,8 +525,11 @@ h4.flash--today {
     padding-bottom: 30px;
 }
 
-.no-shadow {
+.shadow:hover {
     box-shadow: none;
+}
+
+.no-shadow {
     opacity: .8;
 }
 
