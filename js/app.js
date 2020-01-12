@@ -17,6 +17,9 @@ if(document.querySelector('li.shadow')) {
   }, 5000);
 }
 
+import InitProduct from "./modules/InitProduct";
+const init = new InitProduct();
+
 // The countDown clock
 import { Countdown } from './modules/Codpen';
   Countdown.init(); 
@@ -24,7 +27,7 @@ import { Countdown } from './modules/Codpen';
 
 // the setInterval query for update price time etc..
 import { update } from './modules/Update';
-update();
+// update();
 
 // the jump function
 import * as jump from './modules/Jump';

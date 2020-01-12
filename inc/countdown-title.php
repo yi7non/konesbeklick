@@ -4,11 +4,13 @@ function yoyo_countdownTitle() {
     global $post;
     $id = $post->ID;
     $end_time = get_post_meta($id ,'woo_ua_auction_end_date', true);
-    $end_second = round((strtotime($end_time) - strtotime("now")));
-    $end_minute = floor($end_second / 60);
-    $left_second = fmod($end_second, 60);
-    $end_hours = floor($end_minute / 60) - 2;
-    $left_minute = fmod($end_minute, 60);
+            $raw_time = strtotime($end_time) - strtotime("now");
+            $end_days = $raw_time / 60 / 60 / 24;
+            $day_in_hours = intval($end_days) * 24;
+            $end_hours = ($end_days - intval($end_days)) * 24;
+            $end_minutes = ($end_hours - intval($end_hours)) * 60;
+            $end_second = ($end_minutes - intval($end_minutes)) * 60;
+            $end_hours = $end_hours - 2;
     ?>
     <div class="open-auction-time">
         <div class="open-auction-time__info">
@@ -28,7 +30,7 @@ function yoyo_countdownTitle() {
         <div id="codpen" data-id="<?php echo $id; ?>" class="wrap">  
 
             <div class="countdown">
-                <div class="bloc-time hours" data-init-value="<?php echo $end_hours; ?>">
+                <div class="bloc-time hours" data-init-value="<?php echo floor($day_in_hours); ?>">
 
                 <div class="figure hours hours-1">
                     <span class="top">0</span>
@@ -54,7 +56,7 @@ function yoyo_countdownTitle() {
                 <span class="count-title">שעות</span>
                 </div>
 
-                <div class="bloc-time min" data-init-value="<?php echo $left_minute; ?>">
+                <div class="bloc-time min" data-init-value="<?php echo floor($end_minutes); ?>">
 
                 <div class="figure min min-1">
                     <span class="top">0</span>
@@ -80,7 +82,7 @@ function yoyo_countdownTitle() {
                 <span class="count-title">דקות</span>
                 </div>
 
-                <div class="bloc-time sec" data-init-value="<?php echo $left_second; ?>">
+                <div class="bloc-time sec" data-init-value="<?php echo floor($end_second); ?>">
                 
 
                     <div class="figure sec sec-1">

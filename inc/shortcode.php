@@ -21,8 +21,9 @@ function shimi_loop($atts) {
             $end_time = get_post_meta($id ,'woo_ua_auction_end_date', true);
             $raw_time = strtotime($end_time) - strtotime("now");
             $end_days = $raw_time / 60 / 60 / 24;
-            $end_hours = ($end_days - floor($end_days)) * 24;
-            $end_minutes = ($end_hours - floor($end_hours)) * 60;
+            $end_hours = ($end_days - intval($end_days)) * 24;
+            $end_minutes = ($end_hours - intval($end_hours)) * 60;
+            $end_hours = ($end_hours - 2) > 0 ? $end_hours - 2 : 0;
 
             $href = $loop->posts[$loop->current_post]->guid; 
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'shop_catalog' );

@@ -16,11 +16,12 @@ function shimi_enqueue_styles() {
     wp_localize_script( 'bundled', 'shimi_obj', array(
         'ajax_url' => admin_url('/admin-ajax.php'),
         'nonce' => wp_create_nonce('wp_rest'),
-        'root_url' => get_site_url()
+        'root_url' => get_site_url(),
+        'user_id' => get_current_user_id(),
         )); 
 }
 
-add_action( 'wp_enqueue_scripts', 'shimi_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'shimi_enqueue_styles');
 
 function shimi_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );

@@ -5,11 +5,12 @@ import PrependBid from './PrependBid';
 
 export const update = () => {
 
-  if(!$('#uwa_bid_value').length) return;
+  if(!$('body.single-product').length) return;
 
     var upTimePrice = setInterval(function() {
 
-        var id = $('#codpen').data('id');
+        var id = elementorFrontendConfig.post.id;
+        console.log(id)
 
        $.getJSON(shimi_obj.root_url + '/wp-json/shimi/v1/timer?postid=' + id , function(res) {
             Countdown.values.hours = res[0];

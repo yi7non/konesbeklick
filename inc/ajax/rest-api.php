@@ -32,8 +32,23 @@ function shimiTimer() {
       ));
 
         $topbid = substr($results, 0, strpos($results, '.'));
+        $times = array(
+           'end_hours' => $end_hours,
+           'left_minute' => $left_minute,
+           'left_second' => $left_second
+        );
 
-        return array($end_hours, $left_minute, $left_second, $data['postid'], $topbid, $row);
+      //   the minimum bid incrament:
+        $bid_incrament = get_post_meta($data['postid'], 'woo_ua_bid_increment', true);
+        $user_id = get_current_user_id();
+
+        return array(
+           $times,
+           $data['postid'],
+           $topbid,
+           $row,
+           $bid_incrament,
+         );
      }
 
      function gridHomeUPDATE($param) {
