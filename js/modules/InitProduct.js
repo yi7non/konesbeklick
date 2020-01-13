@@ -2,7 +2,7 @@ import { formatNumber } from './FormatNumber';
 import $ from 'jquery';
 export default class InitProduct {
     constructor() {
-        this.id = $('[rel=shortlink]')[0].href.slice(22);
+        this.id = shimi_obj.post_id;
         this.api;
         this.events(); 
     }

@@ -7,6 +7,8 @@ function admin_jump_price() {
         $id = $_POST['id'];
         $userid = $_POST['userid'];
 
+        $price = $price . get_post_meta($id, 'topbid', true);
+
     global $wpdb;
     $table_name = $wpdb->prefix . 'woo_ua_auction_log';
 

@@ -1,6 +1,7 @@
 <?php 
 
 function shimi_enqueue_styles() {
+    global $post;
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'parent-style-min', get_template_directory_uri() . '/style.min.css' );
     wp_enqueue_style( 'parent-theme', get_template_directory_uri() . '/theme.css' );
@@ -15,9 +16,10 @@ function shimi_enqueue_styles() {
 
     wp_localize_script( 'bundled', 'shimi_obj', array(
         'ajax_url' => admin_url('/admin-ajax.php'),
-        'nonce' => wp_create_nonce('wp_rest'),
+        'nonce'    => wp_create_nonce('wp_rest'),
         'root_url' => get_site_url(),
-        'user_id' => get_current_user_id(),
+        'user_id'  => get_current_user_id(),
+        'post_id'  => $post->ID
         )); 
 }
 

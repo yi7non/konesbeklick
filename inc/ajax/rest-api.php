@@ -33,7 +33,7 @@ function shimiTimer() {
 
         $topbid = substr($results, 0, strpos($results, '.'));
         $times = array(
-           'end_hours' => $end_hours,
+           'end_hours'   => $end_hours,
            'left_minute' => $left_minute,
            'left_second' => $left_second
         );

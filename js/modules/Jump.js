@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 export const time = () => {
 
     $('form.jump__time').submit(function(e) {
@@ -25,13 +26,13 @@ export const time = () => {
 
 export const price = () => {
 
-    $('form.jump__price').submit(function(e) {
+    $('#jump-from-internet form').submit(function(e) {
         e.preventDefault();
 
-        const field = $('#jumpPrice');
+        const field = $('#jump-from-internet #form-field-name');
         const price = field.val();
-        const id = field.data('postid');
-        const userid = field.data('userid');
+        const id = shimi_obj.post_id;
+        const userid = shimi_obj.user_id;
 
         var form = {
         action: 'admin_jump_price',
@@ -41,7 +42,7 @@ export const price = () => {
     } 
 
     $.post(shimi_obj.ajax_url, form, function(res) {
-        $('form.jump__price').append(`<p>הקפצת את המחיר ל ${res[0]} ש"ח</p>`);
+            console.log(res);
         });
 
     });
