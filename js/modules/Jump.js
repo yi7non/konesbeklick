@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+import { formatNumber } from './FormatNumber';
 export const time = () => {
 
     $('form.jump__time').submit(function(e) {
@@ -29,11 +29,13 @@ export const price = () => {
     $('#jump-from-internet form').submit(function(e) {
         e.preventDefault();
 
-        const field = $('#jump-from-internet #form-field-name');
-        const price = field.val();
+        const field = $('#jump-from-internet #form-field-name').val();
+        const currentBid = document.getElementById('top-bid').textContent.replace(',', '');
+        const price = parseFloat(field) + parseFloat(currentBid);
+        console.log(price);
         const id = shimi_obj.post_id;
         const userid = shimi_obj.user_id;
-
+ 
         var form = {
         action: 'admin_jump_price',
         price,
@@ -42,7 +44,7 @@ export const price = () => {
     } 
 
     $.post(shimi_obj.ajax_url, form, function(res) {
-            console.log(res);
+        document.getElementById('top-bid').textContent = formatNumber(res[0]);
         });
 
     });
