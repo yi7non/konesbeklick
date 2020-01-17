@@ -17,8 +17,10 @@ if(document.querySelector('li.shadow')) {
   }, 5000);
 }
 
+import InitTimer from "./modules/InitTimer";
 import InitProduct from "./modules/InitProduct";
-const init = new InitProduct();
+const timer = new InitTimer();
+const init = new InitProduct(timer);
 
 // The countDown clock
 import { Countdown } from './modules/Codpen';

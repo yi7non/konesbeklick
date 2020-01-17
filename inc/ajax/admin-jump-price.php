@@ -23,7 +23,9 @@ function admin_jump_price() {
         0 
     ) );
 
-    wp_send_json([$price, $id, $userid], 200);    
+    $bid_incrament = get_post_meta($id, 'woo_ua_bid_increment', true);
+    $bid_incrament = $bid_incrament + $price;
+    wp_send_json([$price, $bid_incrament, $id, $userid], 200);    
 
     }
 

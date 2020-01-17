@@ -32,7 +32,6 @@ export const price = () => {
         const field = $('#jump-from-internet #form-field-name').val();
         const currentBid = document.getElementById('top-bid').textContent.replace(',', '');
         const price = parseFloat(field) + parseFloat(currentBid);
-        console.log(price);
         const id = shimi_obj.post_id;
         const userid = shimi_obj.user_id;
  
@@ -45,6 +44,8 @@ export const price = () => {
 
     $.post(shimi_obj.ajax_url, form, function(res) {
         document.getElementById('top-bid').textContent = formatNumber(res[0]);
+        document.querySelectorAll('#bid-inc, #click-to-bid').forEach(item => item.textContent = formatNumber(res[1]));
+
         });
 
     });

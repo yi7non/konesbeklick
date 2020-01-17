@@ -1,9 +1,15 @@
 import { formatNumber } from './FormatNumber';
 import $ from 'jquery';
 export default class InitProduct {
-    constructor() {
+    constructor(timer) {
         this.id = shimi_obj.post_id;
         this.api;
+        this.time = {
+            h: document.getElementById('clock-h'),
+            m: document.getElementById('clock-m'),
+            s: document.getElementById('clock-s')
+        }
+        this.timer = timer;
         this.events(); 
     }
 
@@ -20,6 +26,10 @@ export default class InitProduct {
                 e.preventDefault();
                 this.clickToBid();
             });
+            this.upDateClock(this.api[0]);
+            setInterval(() => {
+                this.timer.timer(this.api, this.time);
+            }, 1000);
         })
 
     }
@@ -44,6 +54,12 @@ export default class InitProduct {
             $('#top-bid').text(formatNumber(res[0]));
             this.events();
         });
+    }
+
+    upDateClock(time) {
+        this.time.h.textContent = time.hours < 0 ? 0 : time.hours;
+        this.time.m.textContent = time.minutes < 0 ? 0 : time.minutes;
+        this.time.s.textContent = time.sec < 0 ? 0 : time.sec;
     }
 }
 
