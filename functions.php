@@ -48,7 +48,6 @@ add_action('woocommerce_after_single_product_summary', 'latestOffers', 10);
 
 add_shortcode('carsloop', 'shimi_loop');
 
-
 // AJAX SECTION
 require_once(get_theme_file_path( '/inc/ajax/admin-jump-time.php' ));
 add_action('wp_ajax_admin_jump_time', 'admin_jump_time');
