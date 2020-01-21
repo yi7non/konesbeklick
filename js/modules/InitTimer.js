@@ -18,7 +18,7 @@ class InitTimer {
             }
         }
         if(this.init.s === 0 && this.init.m === 0 && this.init.h === 0) {
-            alert()
+            location.reload();
         }
     }
 

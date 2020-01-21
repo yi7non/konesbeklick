@@ -1,5 +1,9 @@
 <?php 
 
+require_once get_theme_file_path('/inc/redirect.php');
+
+add_action('template_redirect', 'endbid_redirect');
+
 function shimi_enqueue_styles() {
     global $post;
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
