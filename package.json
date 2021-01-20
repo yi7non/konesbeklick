@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "gsap": "^3.0.1",
+    "gsap": "^3.6.0",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1"
   },
